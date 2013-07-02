@@ -1,0 +1,37 @@
+language: ruby
+
+rvm:
+  - 1.9.2
+  - 1.9.3
+  - 2.0.0
+  - ruby-head
+  - jruby-19mode
+  - jruby-head
+  - rbx-19mode
+
+jdk:
+  - oraclejdk7
+  - openjdk7
+
+env: CI="travis"
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head
+  exclude:
+    - rvm: 1.9.2
+      jdk: openjdk7
+      env: CI="travis"
+    - rvm: 1.9.3
+      jdk: openjdk7
+      env: CI="travis"
+    - rvm: 2.0.0
+      jdk: openjdk7
+      env: CI="travis"
+    - rvm: ruby-head
+      jdk: openjdk7
+      env: CI="travis"
+    - rvm: rbx-19mode
+      jdk: openjdk7
+      env: CI="travis"
