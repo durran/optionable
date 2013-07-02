@@ -24,6 +24,19 @@ module Optionable
 
   end
 
+  class TypeOf
+
+    attr_reader :type
+
+    def ==(other)
+      other.is_a?(type)
+    end
+
+    def initialize(type)
+      @type = type
+    end
+  end
+
   class Validator
 
     def allows(*values)
@@ -31,15 +44,19 @@ module Optionable
     end
 
     def validate!(value)
-      unless allowed_values.any?{ |allowed| value == allowed }
-        raise Invalid.new
-      end
+      raise Invalid.new unless match?(value)
     end
 
     private
 
     def allowed_values
       @allowed_values ||= []
+    end
+
+    def match?(value)
+      allowed_values.any? do |allowed|
+        value == allowed
+      end
     end
   end
 
