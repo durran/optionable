@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "rake"
 
 group :development, :test do
-  gem "rspec"
+  gem "rspec", "~> 2.13"
 
   if ENV["CI"]
     gem "coveralls", :require => false
