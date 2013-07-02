@@ -5,7 +5,7 @@ describe Optionable do
   class Model
     include Optionable
 
-    # option(:read).allows(:primary, :secondary)
+    option(:read).allows(:primary, :secondary)
 
     def initialize(options = {})
       validate_strict(options)
@@ -41,6 +41,18 @@ describe Optionable do
             Model.new(read: :primary)
             Model.new(read: :secondary)
           }.to_not raise_error
+        end
+      end
+    end
+
+    context "when the options are not valid" do
+
+      context "when options are allowed specific values" do
+
+        it "raises an error for any bad value" do
+          expect {
+            Model.new(read: :tertiary)
+          }.to raise_error(Optionable::Invalid)
         end
       end
     end
