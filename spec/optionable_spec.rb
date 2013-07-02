@@ -6,7 +6,14 @@ describe Optionable do
     include Optionable
 
     option(:read).allows(:primary, :secondary)
-    option(:write).allows(TypeOf.new(Integer))
+
+    option(:write).allows(type_of(Integer))
+
+    option(:update).allows(
+      { int: type_of(Integer) },
+      { str: "exact" },
+      { flt: 10.5 }
+    )
 
     def initialize(options = {})
       validate_strict(options)
@@ -53,6 +60,21 @@ describe Optionable do
           }.to_not raise_error
         end
       end
+
+      context "when options are mixed" do
+
+        it "does not raise an error for correct type" do
+          expect {
+            Model.new(update: { int: 10 })
+          }.to_not raise_error
+        end
+
+        it "does not raise an error for correct value" do
+          expect {
+            Model.new(update: { str: "exact" })
+          }.to_not raise_error
+        end
+      end
     end
 
     context "when the options are not valid" do
@@ -71,6 +93,21 @@ describe Optionable do
         it "raises an error for incorrect type" do
           expect {
             Model.new(write: 14.5)
+          }.to raise_error(Optionable::Invalid)
+        end
+      end
+
+      context "when options are mixed" do
+
+        it "raises an error for incorrect type" do
+          expect {
+            Model.new(update: { int: 14.5 })
+          }.to raise_error(Optionable::Invalid)
+        end
+
+        it "raises an error for incorrect value" do
+          expect {
+            Model.new(update: { str: "blah" })
           }.to raise_error(Optionable::Invalid)
         end
       end

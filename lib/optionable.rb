@@ -66,6 +66,10 @@ module Optionable
       optionable_validators[key] = Validator.new
     end
 
+    def type_of(type)
+      TypeOf.new(type)
+    end
+
     def optionable_validators
       @optionable_validators ||= {}
     end
