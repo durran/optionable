@@ -19,7 +19,7 @@ describe Optionable do
   end
 
   after(:all) do
-    Object.send(:remove_const, Model)
+    Object.send(:remove_const, :Model)
   end
 
   describe "#validate_strict" do
