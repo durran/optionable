@@ -11,5 +11,9 @@ module Optionable
     def initialize(type)
       @type = type
     end
+
+    def inspect
+      "any #{type}"
+    end
   end
 end

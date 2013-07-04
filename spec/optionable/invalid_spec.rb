@@ -29,5 +29,18 @@ describe Optionable::Invalid do
         )
       end
     end
+
+    context "when multiple values are provided with type" do
+
+      let(:invalid) do
+        described_class.new(:test, "test", [ Optionable.any(Integer) ])
+      end
+
+      it "returns the single value error message" do
+        expect(invalid.message).to eq(
+          "\"test\" is not acceptable for option :test. Valid values are: any Integer."
+        )
+      end
+    end
   end
 end
