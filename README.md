@@ -26,7 +26,25 @@ require "optionable"
 Usage
 -----
 
-### TODO
+Include the optional module in your object, and use the DSL for define what values
+are valid for the specified options. Currently you can match on exact values or
+values of a specific type. Then to validate your options, simply call `validate_strict`
+and pass it the hash of options.
+
+```ruby
+class Parser
+  include Optionable
+
+  option(:streaming).allow(true, false)
+  option(:timeout).allow(Optionable.any(Integer))
+
+  def initialize(options = {})
+    validate_strict(options)
+  end
+end
+```
+
+If the options are invalid, an `Optionable::Invalid` error will be raised.
 
 
 API Documentation
