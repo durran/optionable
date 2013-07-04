@@ -5,15 +5,11 @@ describe Optionable do
   class Model
     include Optionable
 
-    option(:read).allows(:primary, :secondary)
-
-    option(:write).allows(type_of(Integer))
-
-    option(:update).allows(
-      { int: type_of(Integer) },
-      { str: "exact" },
-      { flt: 10.5 }
-    )
+    option(:read).allow(:primary, :secondary)
+    option(:write).allow(Optionable.any(Integer))
+    option(:update).allow(int: Optionable.any(Integer))
+    option(:update).allow(str: "exact")
+    option(:update).allow(flt: 10.5)
 
     def initialize(options = {})
       validate_strict(options)
