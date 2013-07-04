@@ -2,18 +2,24 @@ require "spec_helper"
 
 describe Optionable do
 
-  class Model
-    include Optionable
+  before(:all) do
+    class Model
+      include Optionable
 
-    option(:read).allow(:primary, :secondary)
-    option(:write).allow(Optionable.any(Integer))
-    option(:update).allow(int: Optionable.any(Integer))
-    option(:update).allow(str: "exact")
-    option(:update).allow(flt: 10.5)
+      option(:read).allow(:primary, :secondary)
+      option(:write).allow(Optionable.any(Integer))
+      option(:update).allow(int: Optionable.any(Integer))
+      option(:update).allow(str: "exact")
+      option(:update).allow(flt: 10.5)
 
-    def initialize(options = {})
-      validate_strict(options)
+      def initialize(options = {})
+        validate_strict(options)
+      end
     end
+  end
+
+  after(:all) do
+    Object.send(:remove_const, Model)
   end
 
   describe "#validate_strict" do

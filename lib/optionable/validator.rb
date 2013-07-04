@@ -2,12 +2,18 @@
 module Optionable
   class Validator
 
+    attr_reader :key
+
     def allow(*values)
       allowed_values.concat(values)
     end
 
+    def initialize(key)
+      @key = key
+    end
+
     def validate!(value)
-      raise Invalid.new unless match?(value)
+      raise Invalid.new(key, value, allowed_values) unless match?(value)
     end
 
     private

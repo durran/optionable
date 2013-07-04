@@ -3,7 +3,7 @@ module Optionable
   module DSL
 
     def option(key)
-      optionable_validators[key] ||= Validator.new
+      optionable_validators[key] ||= Validator.new(key)
     end
 
     def optionable_validators
