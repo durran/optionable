@@ -11,6 +11,7 @@ describe Optionable do
       option(:update).allow(int: Optionable.any(Integer))
       option(:update).allow(str: "exact")
       option(:update).allow(flt: 10.5)
+      option(:name).allow(Optionable.any(String))
 
       def initialize(options = {})
         validate_strict(options)
@@ -58,7 +59,8 @@ describe Optionable do
 
         it "does not raise an error for correct type" do
           expect {
-            Model.new(write: 10)
+            # Model.new(write: 10)
+            Model.new(name: "test")
           }.to_not raise_error
         end
       end

@@ -68,7 +68,7 @@ module Optionable
     # @since 0.0.0
     def match?(value)
       allowed_values.any? do |allowed|
-        value == allowed
+        allowed == value
       end
     end
   end
