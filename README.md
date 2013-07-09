@@ -46,6 +46,8 @@ end
 
 If the options are invalid, an `Optionable::Invalid` error will be raised.
 
+If an unknown option is provided, an `Optionable::Unknown` error will be
+raised.
 
 API Documentation
 -----------------
