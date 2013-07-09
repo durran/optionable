@@ -1,4 +1,4 @@
-BSON [![Build Status](https://secure.travis-ci.org/durran/optionable.png?branch=master&.png)](http://travis-ci.org/durran/optionable) [![Code Climate](https://codeclimate.com/github/durran/optionable.png)](https://codeclimate.com/github/durran/optionable) [![Coverage Status](https://coveralls.io/repos/durran/optionable/badge.png?branch=master)](https://coveralls.io/r/durran/optionable?branch=master)
+Optionable [![Build Status](https://secure.travis-ci.org/durran/optionable.png?branch=master&.png)](http://travis-ci.org/durran/optionable) [![Code Climate](https://codeclimate.com/github/durran/optionable.png)](https://codeclimate.com/github/durran/optionable) [![Coverage Status](https://coveralls.io/repos/durran/optionable/badge.png?branch=master)](https://coveralls.io/r/durran/optionable?branch=master)
 ====
 
 Robust validation of options passed to Ruby methods.
@@ -6,7 +6,7 @@ Robust validation of options passed to Ruby methods.
 Compatibility
 -------------
 
-BSON is tested against MRI (1.9.2+), JRuby (1.7.0+), Rubinius (2.0.0+).
+Optionable is tested against MRI (1.9.2+), JRuby (1.7.0+), Rubinius (2.0.0+).
 
 Installation
 ------------
