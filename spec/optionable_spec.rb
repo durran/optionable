@@ -43,6 +43,15 @@ describe Optionable do
       end
     end
 
+    context "when options exist that are not defined" do
+
+      it "raises an error" do
+        expect {
+          Model.new(something: :else)
+        }.to raise_error
+      end
+    end
+
     context "when the options are valid" do
 
       context "when options are allowed specific values" do

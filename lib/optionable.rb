@@ -2,6 +2,7 @@
 require "optionable/any"
 require "optionable/dsl"
 require "optionable/invalid"
+require "optionable/unknown"
 require "optionable/validator"
 require "optionable/version"
 
@@ -19,12 +20,17 @@ module Optionable
   # @param [ Hash ] options The options to validate.
   #
   # @raise [ Optionable::Invalid ] If the options are wack.
+  # @raise [ Optionable::Unknown ] If an unknown option is passed.
   #
   # @since 0.0.0
   def validate_strict(options)
     (options || {}).each_pair do |key, value|
       validator = optionable_validators[key]
-      validator.validate!(value) if validator
+      if validator
+        validator.validate!(value)
+      else
+        raise Unknown.new(key, optionable_validators.keys)
+      end
     end
   end
 
