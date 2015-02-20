@@ -9,6 +9,8 @@ Gem::Specification.new do |s|
   s.email        = ["durran@gmail.com"]
   s.summary      = "Robust options validation for methods."
   s.description  = s.summary
+  s.license      = 'MIT'
+  s.homepage     = 'https://github.com/durran/optionable'
   s.files        = Dir.glob("lib/**/*") + %w(README.md LICENSE.md Rakefile)
   s.test_files   = Dir.glob("spec/**/*")
   s.require_path = "lib"
