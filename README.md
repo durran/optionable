@@ -1,4 +1,4 @@
-BSON [![Build Status](https://secure.travis-ci.org/durran/optionable.png?branch=master&.png)](http://travis-ci.org/durran/optionable) [![Code Climate](https://codeclimate.com/github/durran/optionable.png)](https://codeclimate.com/github/durran/optionable) [![Coverage Status](https://coveralls.io/repos/durran/optionable/badge.png?branch=master)](https://coveralls.io/r/durran/optionable?branch=master)
+BSON [![Build Status](https://secure.travis-ci.org/durran/optionable.png?branch=master&.png)](http://travis-ci.org/durran/optionable) [![Code Climate](https://codeclimate.com/github/durran/optionable.png)](https://codeclimate.com/github/durran/optionable) [![Coverage Status](https://coveralls.io/repos/durran/optionable/badge.png?branch=master)](https://coveralls.io/r/durran/optionable?branch=master) [![Dependency Status](https://www.versioneye.com/ruby/optionable/0.2.0/badge.svg)](https://www.versioneye.com/ruby/optionable/0.2.0)
 ====
 
 Robust validation of options passed to Ruby methods.
